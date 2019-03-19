@@ -10,6 +10,7 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProviderJsonProvider {
 
+  //urlApi : string = "http://events.tryapps.tk/api/"
   urlApi : string = "http://customers.vnmas.net";
   //urlApi : string = "http://s98.vnmas.tryapps.tk";
   //urlApi : string = "https://jsonplaceholder.typicode.com/users";
