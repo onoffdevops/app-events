@@ -13,10 +13,7 @@ import { ViewChild } from '@angular/core';
 export class CustomersPage {
   @ViewChild (Navbar) navBar : Navbar;
 
-  username
-  password
-  customerData
-  info_payments
+  info_data
 
   constructor(public navCtrl: NavController, 
               public provider:ProviderJsonProvider, 
@@ -24,33 +21,37 @@ export class CustomersPage {
               public alertCtrl: AlertController,
               private platform: Platform) 
   {
-    this.username = navParm.get('username');
-    this.password = navParm.get('password');
-    this.customerData = navParm.get('info_data');      
+    this.info_data = navParm.get('info_data');      
   }
 
-  getLoanPercentage(loan)
+  loadItinirarie()
   {
-    return (loan.totNumPayments * 100 / loan.numberOfPayment) + "%";
-  }
-
-  loadPayments(id_customer, id_loan, info_loan_detail, id_partner)
-  {
-  	this.provider.getPayments(id_customer, id_loan, id_partner)
+  	this.provider.getItinerarie()
   	.subscribe(
-  		(data)=> {
-        this.info_payments = data;        
-        this.launchDetail(info_loan_detail);
+  		(data)=> {   
+        console.log(data);  
+        this.launchItinerie(data);
       }
     );
       (error)=> {
         console.log(error);
+        this.launchItinerie(null);
       }
   }
 
-  launchDetail(info_loan_detail)
+  launchItinerie(info_tinerarie)
   {
-    this.navCtrl.push(DetailPage, {info_loan_detail: info_loan_detail, info_customer: this.customerData, info_payments: this.info_payments});
+    let alert = this.alertCtrl.create({
+      title: 'Error',
+      subTitle: 'No se puede consultar el itinerario.',
+      buttons: ['OK']
+    });
+
+    if(info_tinerarie.status){
+      this.navCtrl.push(DetailPage, {info_tinerarie: info_tinerarie});
+    }else{
+      alert.present();
+    }
   }
 
   ionViewCanEnter ()
@@ -81,21 +82,6 @@ export class CustomersPage {
     });​
       
   }
-
-  ionViewDidEnter()
-  {
-    this.provider.getInfoCustomer(this.username, 
-        this.password)
-    .subscribe(
-    (data) => {
-        this.customerData = data;
-    },
-
-    (err)=> {
-        console.log("error " + err);
-    }
-    );        
-}
 
   backButtonControl()
   {

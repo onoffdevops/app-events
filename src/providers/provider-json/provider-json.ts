@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import {RequestOptions, Request, RequestMethod} from '@angular/http';
 
 /*
   Generated class for the ProviderJsonProvider provider.
@@ -10,8 +11,8 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class ProviderJsonProvider {
 
-  //urlApi : string = "http://events.tryapps.tk/api/"
-  urlApi : string = "http://customers.vnmas.net";
+  urlApi : string = "http://events.tryapps.tk/api"
+  //urlApi : string = "http://customers.vnmas.net";
   //urlApi : string = "http://s98.vnmas.tryapps.tk";
   //urlApi : string = "https://jsonplaceholder.typicode.com/users";
 
@@ -20,11 +21,18 @@ export class ProviderJsonProvider {
   }
 
   getInfoCustomer(user_name: string, password: string){
-  	return this.http.get(this.urlApi+"/CustomerLogin/"+user_name+"/"+password);
+
+    var body = new FormData();
+
+    body.append("email", user_name);
+    body.append("password", password);
+
+    return this.http.post(this.urlApi+"/loginUsers", body);
+    
   }
 
-  getPayments(id_customer: string, id_loan: string, partner: string){
-  	return this.http.get(this.urlApi+"/LoansPayments/"+id_customer+"/"+id_loan+"/"+partner);
+  getItinerarie(){
+  	return this.http.get(this.urlApi+"/listItineraries");
   }
 
 }
