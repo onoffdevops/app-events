@@ -1,0 +1,18 @@
+{
+  "android": {
+      "debug": {
+          "keystore": "",
+          "storePassword": "",
+          "alias": "",
+          "password" : "",
+          "keystoreType": ""
+      },
+      "release": {
+          "keystore": "PayView.keystore",
+          "storePassword": "4rg0k3y$t0r3{*dev(*and)}",
+          "alias": "PayView",
+          "password" : "k3y[P@yV13w]=(*s1Gn4TuR3.apk*)",
+          "keystoreType": ""
+      }
+  }
+}

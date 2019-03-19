@@ -1,0 +1,94 @@
+<ion-header>
+    <ion-navbar color="primary">
+        <ion-title>
+            Bienvenido
+        </ion-title>
+        <ion-buttons end>
+            <button ion-button (click)="ionViewDidEnter()">
+                <ion-icon name="sync"></ion-icon>
+            </button>
+        </ion-buttons>        
+    </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+    <div class="main-content">
+        <ion-card>
+
+            <ion-row class="card_title">
+                <ion-col>Datos personales</ion-col>
+            </ion-row>
+
+            <ion-item>
+                <ion-icon name="contact" item-start large></ion-icon>
+                <h2>{{customerData.fullName}}</h2>
+                <p>ID: {{customerData.idCustomer}}</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="phone-portrait" item-start large></ion-icon>
+                <h3>{{customerData.phone}}</h3>
+                <p>Teléfono</p>
+            </ion-item>
+
+            <ion-item>
+                <ion-icon name="document" item-start large></ion-icon>
+                <h3>{{customerData.document}}</h3>
+                <p>Documento</p>
+            </ion-item>
+
+        </ion-card>
+    </div>
+
+    <ion-card>
+        <ion-row class="card_title">
+            <ion-col>Sus compras</ion-col>
+        </ion-row>
+
+        <ion-card *ngFor="let loan of customerData.lstLoans" (click)="loadPayments(
+            customerData.idCustomer, 
+            loan.idLoan, 
+            loan, 
+            customerData.Partner)">
+            
+            <ion-row class="margin-top">
+                <ion-col>ID Compra: {{loan.idLoan}}</ion-col>
+            </ion-row>
+
+            <ion-row class="margin-top">
+                <ion-col class="title_element" col-6>Fecha</ion-col>
+                <ion-col class="title_element" col-6>Valor</ion-col>
+            </ion-row>
+
+            <ion-row>
+                <ion-col class="value_element" col-6>{{loan.dateLoan| date: "MMM dd yyyy"}}
+                    <p class="daysOverdue" *ngIf="loan.daysDue > 0">{{loan.daysDue}} dias mora</p>
+                </ion-col>
+                <ion-col class="value_element" col-5>
+                    <p class="title">
+                        {{ loan.amount | number: '.0' }}
+                    </p>
+                </ion-col>
+                <ion-col col-1>
+                    <ion-icon name="ios-arrow-forward" item-start></ion-icon>
+                </ion-col>
+            </ion-row>
+
+            <ion-row class="second_section">
+                <ion-col class="title_element" col-6>Cuotas</ion-col>
+                <ion-col class="title_element" col-6>Progreso Pago</ion-col>
+            </ion-row>
+
+            <ion-row class="last_section">
+                <ion-col class="value_element" col-6>{{ loan.totNumPayments }}/{{ loan.numberOfPayment }}</ion-col>
+                <ion-col class="value_element" col-6>
+                    <div class="loader" [style.width]="getLoanPercentage(loan)">
+                            <p class="percent">{{ (loan.totNumPayments * 100 / loan.numberOfPayment) | number:'1.0-0'}}%</p>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-card>
+    
+</ion-content>

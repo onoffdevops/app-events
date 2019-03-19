@@ -1,0 +1,97 @@
+page-customers {
+ 
+  .content {
+    background: #ffffff;
+
+  }
+
+  .text-red {
+    color: #f53d3d;
+  }
+
+  .text-green {
+    color: #32db64;
+  }
+
+  .text-blue {
+    color: #488aff;
+  }
+
+  .loader{
+    background: #97C66B !important;
+    border-radius:100px;
+    height:20px;
+    p{
+      text-align:center;
+      color:black !important;
+      text-align:center;
+      overflow:visible;
+      white-space: nowrap;
+    }
+  }
+
+  .main-content{
+    margin-bottom: 25px;
+  }
+
+  .title{
+    color: #233539;
+    font-size: 1.8rem;
+    font-weight: bold;
+
+  }
+
+  .titleIcon{
+    padding-left: 1px !important;
+  }
+
+  .subtitle{
+    color: #75888C;
+    margin: -4px 0 2px;
+    padding-left: 10px;
+
+  }
+
+  .daysOverdue{
+    color: red;
+    font-size: 1.1rem;
+
+  }
+
+  .main-row{
+    padding: 4px;
+  }
+
+  .margin-top{
+    margin-top: 12px;
+  }
+
+  .title_element{
+    padding-left: 15px;
+    padding-bottom: 10px;
+    color: #AFB8B9;
+  }
+
+  .value_element{
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;   
+  }
+
+  .second_section{
+    margin-top: -20px;
+  }
+
+  .last_section{
+    margin-bottom: 5px;
+  }
+
+  .card_title{
+    padding-left:20px;
+    padding-top:12px;
+    padding-bottom:12px;
+    color: #424242;
+    background-color: #f7f7f7;
+}
+   
+}
