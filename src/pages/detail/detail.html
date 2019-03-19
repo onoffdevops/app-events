@@ -1,88 +1,35 @@
 <ion-header>
   <ion-navbar color="primary">
     <ion-title>
-      ID Compra: {{ info_detail.idLoan }}
+      Itinerario
     </ion-title>
-    <ion-buttons end>
-      <button ion-button (click)="ionViewDidEnter()">
-          <ion-icon name="sync"></ion-icon>
-      </button>
-  </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-  <ion-card>
-    <ion-row class="card_title">
-      <ion-col>Datos de la compra</ion-col>
+  <ion-card *ngFor="let item of itinerario.data">
+    
+    <ion-row class="margin-top">
+      <ion-col>Nombre: {{item.name}}</ion-col>
     </ion-row>
 
     <ion-row class="margin-top">
-      <ion-col class="title_element" col-6>Fecha</ion-col>
-      <ion-col class="title_element" col-6>Valor</ion-col>
+      <ion-col>Descripción: {{item.description}}</ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="value_element" col-6>
-        {{info_detail.dateLoan| date: "MMM dd yyyy"}}
-        <p class="daysOverdue" *ngIf="info_detail.daysDue > 0">{{info_detail.daysDue}} dias mora</p>
-      </ion-col>
-      <ion-col class="value_element" col-6>
-        <p class="title">
-          {{ amount.replace(',','') | number: '.0' }}
-        </p>
-      </ion-col>
+    <ion-row class="margin-top">
+      <ion-col>Persona a Cargo: {{item.person_in_charge}}</ion-col>
     </ion-row>
 
-    <ion-row class="">
-      <ion-col class="title_element" col-6>Cuotas</ion-col>
-      <ion-col class="title_element" col-6>Progreso Pago</ion-col>
+    <ion-row class="margin-top">
+      <ion-col>Horario: {{item.scheduled_time}}</ion-col>
     </ion-row>
 
-    <ion-row>
-      <ion-col class="value_element" col-6>{{ fees_paids }}/{{ info_detail.numberOfPayment }}</ion-col>
-      <ion-col class="value_element" col-6>
-        <div class="loader" [style.width]="getLoanPercentage()">
-          <p class="percent">{{ (fees_paids * 100 / info_detail.numberOfPayment) | number:'1.0-0' }}%
-          </p>
-        </div>
-      </ion-col>
+    <ion-row class="margin-top">
+      <ion-col>Lugar: {{item.location}}</ion-col>
     </ion-row>
-
-    <ion-row class="">
-      <ion-col class="title_element" col-6>Pagado</ion-col>
-      <ion-col class="title_element" col-6>Pendiente</ion-col>
-    </ion-row>
-
-    <ion-row class="margin-bottom">
-      <ion-col class="value_element" col-6>{{ payments }}</ion-col>
-      <ion-col class="value_element" col-6>{{payments_pending}}</ion-col>
-    </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-    <ion-row class="card_title">
-      <ion-col>Historial de Pagos</ion-col>
-    </ion-row>
-
-    <ion-row class="payments_first">
-      <ion-col class="title_element" col-6>Fecha</ion-col>
-      <ion-col class="title_element" col-3>Valor</ion-col>
-      <ion-col class="title_element" col-3>Cuotas</ion-col>
-    </ion-row>
-
-    <ion-row class="margin-bottom" *ngFor="let payment of info_payments_detail">
-      <ion-col class="value_element" col-6>{{payment.datePayment}}</ion-col>
-      <ion-col class="value_element" col-3>{{payment.amountPayment}}</ion-col>
-      <ion-col class="value_element" col-3>{{payment.numPayments}}</ion-col>
-    </ion-row>
-
-  </ion-card>
-
-  <ion-card>
-
+    
   </ion-card>
   
 </ion-content>
