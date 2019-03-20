@@ -1,0 +1,25 @@
+<ion-menu persistent = "true" [content]="content" id="leftMenu" side="left">
+  <ion-header>
+      <ion-toolbar>
+          <ion-title>
+              Menu
+          </ion-title>
+      </ion-toolbar>
+  </ion-header>
+  <ion-content>
+      <ion-list>
+          <button ion-item (click)="openPage(CustomersPage)">
+              Inicio
+          </button>
+          <button ion-item (click)="openPage()">
+              Comentarios
+          </button>  
+          <button ion-item (click)="openPage()">
+              Salir
+          </button> 
+      </ion-list>
+  </ion-content>
+</ion-menu>
+<ion-nav >
+    <router-outlet></router-outlet>
+</ion-nav>

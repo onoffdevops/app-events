@@ -1,0 +1,38 @@
+.toolbar-md-primary .toolbar-background-md {
+    background-color: #6BAE2D !important;
+}
+
+page-login .login-content .submit-btn {
+    background: #6BAE2D !important;
+}
+
+page-login .login-content .card {
+
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-top:15%;
+    background-attachment: fixed;
+
+}
+.button-md {
+background-color: #6BAE2D !important;
+}
+.main-img{
+    width: 60%;
+    height: auto;
+    margin: auto;
+}
+
+.comments-buttom{
+    background-color: #3c89d9 !important;
+    color:#ffffff;
+}
+
+.exit-buttom{
+    background-color: #ca0a0a !important;
+    color:#ffffff;
+}
+
+page-detail .margin-top {
+    margin-top: 2px !important;
+}
