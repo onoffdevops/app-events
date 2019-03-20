@@ -4,6 +4,7 @@ import { ProviderJsonProvider } from '../../providers/provider-json/provider-jso
 import { TestServiceProvider } from '../../providers/test-service/test-service';
 import { DetailPage } from '../detail/detail';
 import { ViewChild } from '@angular/core'; 
+import { CommentsPage } from '../comments/comments';
 
 @Component({
   selector: 'page-customers',
@@ -101,5 +102,10 @@ export class CustomersPage {
       ]
     });
     alert.present(); 
+  }  
+
+  launchComments()
+  {
+    this.navCtrl.push(CommentsPage, {user_id: "user_id"});
   }
 }

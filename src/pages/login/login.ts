@@ -3,6 +3,7 @@ import { NavController, AlertController, Platform } from 'ionic-angular';
 import { ProviderJsonProvider } from '../../providers/provider-json/provider-json';
 import { TestServiceProvider } from '../../providers/test-service/test-service';
 import { CustomersPage } from '../customers/customers';
+import { RegisterPage } from '../register/register';
 import { Storage } from '@ionic/storage';
  
 //import { PickerPage } from '../../pages/picker/picker';
@@ -50,6 +51,7 @@ export class LoginPage {
     });
  
     if (data != null && data.status) {
+      this.storage.set('user_id', data.data.user_id); 
       this.navCtrl.push(CustomersPage, {info_data: data});
     } else {
       alert.present();
@@ -70,6 +72,11 @@ export class LoginPage {
   backButtonControl()
   {
     this.platform.exitApp();
+  }
+
+  register()
+  {
+    this.navCtrl.push(RegisterPage);
   }
  
 }

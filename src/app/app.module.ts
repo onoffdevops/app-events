@@ -5,10 +5,11 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
-import { HomePage } from '../pages/home/home';
 import { CustomersPage } from '../pages/customers/customers';
 import { DetailPage } from '../pages/detail/detail';
 import { LoginPage } from '../pages/login/login';
+import { CommentsPage } from '../pages/comments/comments';
+import { RegisterPage } from '../pages/register/register';
 import { ProviderJsonProvider } from '../providers/provider-json/provider-json';
 import { HttpClientModule } from '@angular/common/http';
 import { TestServiceProvider } from '../providers/test-service/test-service';
@@ -17,10 +18,11 @@ import { IonicStorageModule } from '@ionic/storage';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage,
     CustomersPage,
     DetailPage,
-    LoginPage
+    LoginPage,
+    CommentsPage,
+    RegisterPage
   ],
   imports: [
     BrowserModule,
@@ -34,10 +36,11 @@ driverOrder: ['indexeddb', 'sqlite', 'websql']
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage,
     CustomersPage,
     DetailPage,
-    LoginPage
+    LoginPage,
+    CommentsPage,
+    RegisterPage
   ],
   providers: [
     StatusBar,

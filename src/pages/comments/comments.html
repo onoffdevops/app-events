@@ -1,0 +1,26 @@
+<ion-header>
+    <ion-navbar color="primary">
+      <ion-title>
+        Comentarios
+      </ion-title>
+    </ion-navbar>
+  </ion-header>
+  
+  <ion-content>
+  
+    <ion-item>
+      <ion-label>Seleccione un producto *</ion-label>
+      <ion-select [(ngModel)]="application">
+          <ion-option [value]="Yadinero">Yadinero</ion-option>
+          <ion-option [value]="VendaMas">Venda Mas</ion-option>
+          <ion-option [value]="TryGPS">Try GPS</ion-option>
+          <ion-option [value]="Soinco">Soinco</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-textarea rows="5" maxLength="500" placeholder="Ingrese el comentario aquí *" [(ngModel)]="suggestion"></ion-textarea>
+    </ion-item> 
+      
+    <button ion-button class="submit-btn" full (click)='loadComments();'>Enviar</button>
+    
+  </ion-content>
