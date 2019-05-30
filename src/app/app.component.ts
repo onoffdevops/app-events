@@ -8,6 +8,7 @@ import { CustomersPage } from '../pages/customers/customers';
 import { DetailPage } from '../pages/detail/detail';
 import { CommentsPage } from '../pages/comments/comments';
 import { RegisterPage } from '../pages/register/register';
+import { GenerateQRPage } from '../pages/generateQR/generateQR';
 
 @Component({
   templateUrl: 'app.html'

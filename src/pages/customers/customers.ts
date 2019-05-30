@@ -5,6 +5,7 @@ import { TestServiceProvider } from '../../providers/test-service/test-service';
 import { DetailPage } from '../detail/detail';
 import { ViewChild } from '@angular/core'; 
 import { CommentsPage } from '../comments/comments';
+import { GenerateQRPage } from '../generateQR/generateQR';
 
 @Component({
   selector: 'page-customers',
@@ -15,6 +16,8 @@ export class CustomersPage {
   @ViewChild (Navbar) navBar : Navbar;
 
   info_data
+  url
+  public notRegister; 
 
   constructor(public navCtrl: NavController, 
               public provider:ProviderJsonProvider, 
@@ -22,7 +25,22 @@ export class CustomersPage {
               public alertCtrl: AlertController,
               private platform: Platform) 
   {
-    this.info_data = navParm.get('info_data');      
+    this.info_data = navParm.get('info_data');  
+    this.url = this.info_data.data.url;
+    this.validateUrl();
+  }
+
+  validateUrl(){
+    console.log(this.url);
+    if(this.url != undefined){       
+        if(this.url == false){   
+          console.log("false");
+          this.notRegister = false;             
+        }else{
+          console.log("true");
+          this.notRegister = true; 
+        }
+    }
   }
 
   loadItinirarie()
@@ -107,5 +125,9 @@ export class CustomersPage {
   launchComments()
   {
     this.navCtrl.push(CommentsPage, {user_id: "user_id"});
+  }
+  
+  launchGenerateQR(){
+    this.navCtrl.push(GenerateQRPage, {url: this.url});
   }
 }

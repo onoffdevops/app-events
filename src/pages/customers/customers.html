@@ -8,24 +8,25 @@
 
 <ion-content>
        
-        <ion-card (click)='loadItinirarie();' class="sc-ion-card-ios-h sc-ion-card-ios-s hydrated">
-            <img src="assets/imgs/main.jpg">
-            <ion-card-header class="hydrated">              
-                <ion-card-title role="heading" aria-level="2" class="hydrated">IV Asamblea General</ion-card-title>
-            </ion-card-header>
-            <ion-card-content class="card-content card-content-ios hydrated">
-               Ver Itinerario
-            </ion-card-content>
-        </ion-card>
+    <ion-card (click)='loadItinirarie();' class="sc-ion-card-ios-h sc-ion-card-ios-s hydrated">
+        <img src="assets/imgs/main.png">
+        <ion-card-content class="card-content card-content-ios hydrated">
+            Ver Itinerario
+        </ion-card-content>
+    </ion-card>
     <ion-buttons start style="text-align:center">
+        <button (click)='launchGenerateQR();' class="comments-buttom" ion-button icon-end color="light" *ngIf="notRegister">
+            Registrar ingreso
+            <ion-icon name="checkmark-circle"></ion-icon>
+        </button>
         <button (click)='launchComments();' class="comments-buttom" ion-button icon-end color="light">
             Comentarios
             <ion-icon name="chatboxes"></ion-icon>
-            </button>
-            <button (click)='backButtonControl();' class="exit-buttom" ion-button icon-end color="light">
-                Salir
-                <ion-icon name="exit"></ion-icon>
-            </button>
-        </ion-buttons>
+        </button>
+        <button (click)='backButtonControl();' class="exit-buttom" ion-button icon-end color="light">
+            Salir
+            <ion-icon name="exit"></ion-icon>
+        </button>
+    </ion-buttons>
    
 </ion-content>

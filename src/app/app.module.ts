@@ -14,6 +14,8 @@ import { ProviderJsonProvider } from '../providers/provider-json/provider-json';
 import { HttpClientModule } from '@angular/common/http';
 import { TestServiceProvider } from '../providers/test-service/test-service';
 import { IonicStorageModule } from '@ionic/storage';
+import { QRCodeModule } from 'angularx-qrcode';
+import { GenerateQRPage } from '../pages/generateQR/generateQR';
 
 @NgModule({
   declarations: [
@@ -22,16 +24,18 @@ import { IonicStorageModule } from '@ionic/storage';
     DetailPage,
     LoginPage,
     CommentsPage,
-    RegisterPage
+    RegisterPage,
+    GenerateQRPage
   ],
   imports: [
     BrowserModule,
+    QRCodeModule,
     IonicModule.forRoot(MyApp),
     HttpClientModule,
     IonicStorageModule.forRoot({
       name: '__mydb',
 driverOrder: ['indexeddb', 'sqlite', 'websql']
-    })
+    })    
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -40,7 +44,8 @@ driverOrder: ['indexeddb', 'sqlite', 'websql']
     DetailPage,
     LoginPage,
     CommentsPage,
-    RegisterPage
+    RegisterPage,
+    GenerateQRPage
   ],
   providers: [
     StatusBar,
