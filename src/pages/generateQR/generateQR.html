@@ -7,5 +7,13 @@
 </ion-header>
 
 <ion-content>
-    <qrcode [qrdata]="url" [size]="256" [level]="'M'"></qrcode>
+    <ion-card>
+        <ion-card-content>
+            <ion-list>
+                <ion-item>                      
+                    <qrcode [qrdata]="url" [size]="256" [level]="'M'"></qrcode>
+                </ion-item> 
+            </ion-list> 
+        </ion-card-content>
+    </ion-card>
 </ion-content>
